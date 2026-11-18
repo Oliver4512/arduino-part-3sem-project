@@ -10,9 +10,13 @@ constexpr uint32_t MODBUS_BAUD = 9600;  // 9600 8N1 i alle RTU-deltagere
 constexpr uint8_t SLAVE_ID = 1;
 
 // Registermap (holding registers, nulbaseret offset)
-constexpr uint16_t REG_TEST_VALUE = 0;
+constexpr uint16_t REG_ADC_MILLIVOLTS = 0;
 constexpr uint16_t REG_UPTIME_S = 1;
-constexpr uint16_t TEST_VALUE = 1234;
+
+// ADC1-kanal 6 (kun indgang). ADC1 er valgt, fordi ADC2 deler hardware med Wi-Fi.
+// Med 11 dB dæmpning er det målbare område 150-2450 mV (ESP-IDF v4.4, ESP32 ADC).
+constexpr int ADC_INPUT_PIN = 34;
+constexpr uint32_t ADC_UPDATE_MILLISECONDS = 1000;
 
 constexpr uint32_t UPTIME_UPDATE_MS = 1000;
 constexpr uint32_t HEARTBEAT_LOG_MS = 10000;
